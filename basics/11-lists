@@ -1,2 +1,2 @@
 #!/bin/bash
-find . /.. /boot 
+ls -la . /.. /boot 
