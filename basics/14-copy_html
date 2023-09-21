@@ -1,2 +1,2 @@
 #!/bin/bash
-resync -av --ignore-existing --exclude='*' --include='*.html' ./ ../
+cp -u *.html ..
