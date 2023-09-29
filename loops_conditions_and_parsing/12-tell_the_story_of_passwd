@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
-# Set the Internal Field Separator (IFS) to colon to split fields in /etc/passwd
+# Set the input field separator (IFS) to ":"
 IFS=":"
-# Open /etc/passwd file for reading
-while IFS=":" read -r username _ _ _ gecos homedir shell _; do
-  # Extract the user information from the GECOS field
-  IFS="," read -ra gecos_fields <<< "$gecos"
-  group_name="${gecos_fields[1]}"
-  user_info="${gecos_fields[4]}"
 
-  # Display the formatted information
-  echo "The user $username is part of the $group_name gang,"
-  echo "lives in $homedir and rides $shell."
-  echo "More info about the user here: $user_info"
-  echo
-done < /etc/passwd
+# Read the /etc/passwd file into an array
+mapfile -t passwd_entries < /etc/passwd
 
+# Iterate over the array of passwd entries
+for passwd_entry in "${passwd_entries[@]}"; do
+    # Split the passwd entry into fields
+    IFS=":" read -r username _ uid _ _ home shell _ <<< "$passwd_entry"
+
+    # Extract user ID info
+    uid_info=$(grep "^$username:" /etc/passwd | cut -d: -f5)
+
+    # Print formatted output
+    echo "The user $username lives in $home and rides $shell. $uid's place is protected by the passcode x, more info about the user here: $uid_info"
+done
