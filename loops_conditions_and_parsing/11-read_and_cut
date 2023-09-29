@@ -3,7 +3,7 @@
 IFS=":"
 
 # Open /etc/passwd file for reading
-while read -r username x uid gid gecos homedir shell; do
+while read -r username _ uid _ _ homedir _; do
   # Display the desired information
   echo "Username: $username"
   echo "User ID: $uid"
