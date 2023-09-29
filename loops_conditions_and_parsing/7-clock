@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#recover
+# hour commands
 hour=0
 minute=1
 while [ "$hour" -le 12 ]; do
