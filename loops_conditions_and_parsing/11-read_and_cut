@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Set the Internal Field Separator (IFS) to colon to split fields in /etc/passwd
+IFS=":"
+
+# Open /etc/passwd file for reading
+while read -r username x uid gid gecos homedir shell; do
+  # Display the desired information
+  echo "Username: $username"
+  echo "User ID: $uid"
+  echo "Home Directory: $homedir"
+done < /etc/passwd
