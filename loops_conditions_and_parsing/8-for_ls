@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Loop through the files in the current directory
+for file in *; do
+  # Check if the file is not hidden (doesn't start with a dot)
+  if [[ ! "$file" == .* ]]; then
+    # Use cut to extract the part of the name after the first dash
+    new_name=$(echo "$file" | cut -d'-' -f2-)
+    # Print the modified name
+    echo "$new_name"
+  fi
+done
