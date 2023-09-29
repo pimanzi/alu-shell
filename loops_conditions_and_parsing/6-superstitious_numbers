@@ -18,4 +18,3 @@ while [ $count -le 20 ]; do
   esac
   ((count++))
 done
-
