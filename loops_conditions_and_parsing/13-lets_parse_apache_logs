@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Check if apache-access.log file exists
+if [ ! -f "apache-access.log" ]; then
+    echo "Error: apache-access.log file not found in the current directory."
+    exit 1
+fi
+
+# Use awk to extract IP and HTTP status code and format the output
+awk '{print $1, $9}' apache-access.log | awk '{print $1, $2}'
