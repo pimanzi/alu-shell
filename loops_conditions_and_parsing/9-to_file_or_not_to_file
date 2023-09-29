@@ -18,4 +18,5 @@ if [ -e "$file" ]; then
   fi
 else
   echo "school file does not exist"
+  echo "school file is empty"
 fi
