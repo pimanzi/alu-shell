@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# using until to dispay Best school ten times
+count=0
+until [ $count -eq 10 ]; do
+  echo "Best School"
+  ((count++))
+done
