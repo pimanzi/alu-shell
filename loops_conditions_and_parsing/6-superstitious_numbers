@@ -1,20 +1,24 @@
 #!/usr/bin/env bash
-# using case statement
-count=1
-while [ $count -le 20 ]; do
-  case $count in
+#case statement
+counter=1
+while [ "$counter" -le 20 ]; do
+  case "$counter" in
     4)
-      echo "$count and then bad luck from China"
+      echo $counter
+echo "bad luck from China"
       ;;
     9)
-      echo "$count and then bad luck from Japan"
+      echo $counter
+echo "bad luck from Japan"
       ;;
     17)
-      echo "$count and then bad luck from Italy"
+      echo $counter
+echo "bad luck from Italy"
       ;;
     *)
-      echo "$count"
+      echo "$counter"
       ;;
   esac
-  ((count++))
+
+  ((counter++))
 done
