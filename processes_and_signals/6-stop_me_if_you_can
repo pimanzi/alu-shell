@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#killing some infinite loop process
+
+pkill -f infinity
